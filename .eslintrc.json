@@ -1,0 +1,30 @@
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jest/recommended",
+    "plugin:standard-with-typescript",
+    "plugin:react/recommended"
+  ],
+  "plugins": ["react"],
+  "parserOptions": {
+    "project":"./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/camelcase": "off", 
+    "semi": ["error", "always"],
+    "@typescript-eslint/explicit-function-return-type": "warn",
+    "space-before-function-paren": ["error", "always"],
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-floating-promises": "warn",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  }
+}
