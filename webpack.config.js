@@ -3,20 +3,20 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/main/index.tsx',
+  entry: path.join(__dirname, 'src/main/index.tsx'),
   output: {
     path: path.join(__dirname, 'public/js'),
     publicPath: '/js/',
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'], 
+    extensions: ['.ts', '.tsx', '.js', '.json'],
     alias: {
       '@': path.join(__dirname, 'src')
     }
   },
   module: {
-    rules: [ 
+    rules: [
       {
         test: /\.ts(x?)$/,
         loader: 'ts-loader',
@@ -25,16 +25,26 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          'style-loader', 
-          'css-loader',   
-          'sass-loader'   
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader' 
         ]
       }
     ]
   },
   devServer: {
-    contentBase: './public',
-    writeToDisk: true,
+    devMiddleware: {
+      writeToDisk: true, 
+    },
+    static: './public',
     historyApiFallback: true
   },
   externals: {
@@ -43,5 +53,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin()
-  ]
+  ],
+  devtool: 'source-map'
 };

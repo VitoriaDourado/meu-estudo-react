@@ -5,8 +5,8 @@ import { faker } from "@faker-js/faker";
 import { HttpStatusCode } from "../protocols/http/http-response";
 import { InvalidCredentialsError } from "../../domain/error/invalid-credentials-error";
 import { UnexpectedError } from "../../domain/error/unespected-error";
-import { AuthenticationParams } from "@/domain/usestate/authentication";
-import { AccountModel } from "@/domain/models/account-model";
+import { AuthenticationParams } from "../../domain/usestate/authentication";
+import { AccountModel } from "../../domain/models/account-model";
 
 type SutTypes = {
   sut: RemoteAuthentication;
