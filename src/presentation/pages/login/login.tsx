@@ -1,5 +1,6 @@
 import React from "react";
-import { Footer, LoginHeader, Input } from "../../components/index";
+import { Footer, LoginHeader, Input, Loading } from "../../components/index";
+
 
 const Login: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const Login: React.FC = () => {
             Entrar
           </button>
           <span className="hover:underline cursor-pointer text-red-950 m-3">Criar Conta</span>
+          <Loading/>
         </div>
       </form>
       <Footer/>
